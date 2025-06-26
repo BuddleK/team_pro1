@@ -1,5 +1,6 @@
 package teamTask;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
@@ -17,7 +18,26 @@ public class Game {
 	
 
 	// setLevel() 최장현 : 난이도 선택
+	void setLevel(Scanner sc) {
+	      while (true) {
+	         System.out.print("난이도를 입력하세요 (1부터 5까지!): ");
+	         this.level = sc.nextInt();
+	         int level = this.level;
+	         if (level <= 5 && level > 0) {
+	        	int range = level * 20;
+	        	Random r = new Random();
+	        	this.answer = r.nextInt(range)+1;
+	        	System.out.println("선택한 난이도는 " + level + "입니다.");
+	            System.out.println("범위는 1부터 " + range + "까지 입니다.");
+	            this.limit = level * 5;
+	            System.out.println("최대 시도 횟수는 " + limit + "입니다.");
+	            break;
+	         } else {
+	            System.out.println("레벨은 5레벨까지만 있습니다. 다시 입력해주세요");
 
+	         }
+	      }
+	   }
 	
 	
 	
