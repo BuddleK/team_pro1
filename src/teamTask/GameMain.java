@@ -10,7 +10,7 @@ public class GameMain {
 //		Game game = new Game();
 //		game.setLevel(sc);
 //		game.getStart(sc);
-		
+		System.out.println();
 		
 		sc.close();
 	}
