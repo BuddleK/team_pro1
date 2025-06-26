@@ -10,9 +10,10 @@ public class GameMain {
 		Game game = new Game();
 
 		game.setLevel(sc);
-//		game.getStart(sc);
-
+		game.setRandom();
+		game.getStart(sc);
 		
+			
 		sc.close();
 	}
 }
