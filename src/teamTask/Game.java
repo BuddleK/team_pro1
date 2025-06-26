@@ -20,13 +20,10 @@ public class Game {
 
 	// setLevel() 최장현 : 난이도 선택
 
-
 	// checkAnswer() 강승훈 : 정답비교
 
-<<<<<<< HEAD
-=======
-	
->>>>>>> main
+
+
 
 	// getHint() 이재빈 : 힌트제공
 	void getHint() {
@@ -70,15 +67,8 @@ public class Game {
 
 	// getStart() 백정이 : 게임실행
 
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> main
 
 	// quit()강버들 : 종료
-
-	
-	
 
 }
