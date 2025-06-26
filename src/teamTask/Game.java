@@ -98,11 +98,13 @@ public class Game {
 			if (input < 1 || input > (this.level * 20)) {
 				System.out.println("!!!!!!!!범위를 벗어난 입력입니다.!!!!!!!!!");
 			} else {
-				System.out.println(tryCount + "번 입력을 했습니다!");
+				System.out.println(tryCount + 1 + "번 입력을 했습니다!");
 				if (checkAnswer()) {
 					break;
 				}
-				if (this.limit / 2 + 1 == tryCount) {
+				if (this.limit / 2 == tryCount) {
+					getHint();
+				} else if (this.tryCount == this.limit - 2) {
 					getHint();
 				}
 			}
