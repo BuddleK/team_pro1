@@ -94,35 +94,39 @@ public class Game {
 	
 	//getStart() 백정이 : 게임실행
 
+	void getStart(Scanner sc) {
 
+	      while(true) {
+	         System.out.print("숫자를 맞춰주세요!!! 입력 : ");
+	         input = sc.nextInt();
+	         System.out.println(input + "을 입력하셨습니다.");
+	         if(input < 1 || input > (this.level * 20)) {
+	            System.out.println("!!!!!!!!범위를 벗어난 입력입니다.!!!!!!!!!");
+	         }else {
+	            System.out.println(tryCount + "번 입력을 했습니다!");
+	            if(checkAnswer()) {
+	               break;
+	            }
+	            if(this.limit / 2 == tryCount) {
+	               getHint();
+	            }
+	         }
+	         tryCount++;
+	         
+	         if(tryCount == this.limit) {
+	            System.out.println("시도횟수를 초과했습니다!");
+	            break;
+	         }
+
+	      }
+	      
+	      
+	      
+	      quit();
+	      
+	   }
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	// quit()강버들 : 종료
 
