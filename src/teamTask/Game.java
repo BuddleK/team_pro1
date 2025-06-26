@@ -19,6 +19,7 @@ public class Game {
 //	   조건 : 최대시도횟수제한(10)
 
 	// setLevel() 최장현 : 난이도 선택
+
 	void setLevel(Scanner sc) {
 	      while (true) {
 	         System.out.print("난이도를 입력하세요 (1부터 5까지!): ");
@@ -40,10 +41,12 @@ public class Game {
 	   }
 
 	// checkAnswer() 강승훈 : 정답비교
+	
 
 	
 
 	// getHint() 이재빈 : 힌트제공
+	
 	void getHint() {
 		if (this.input > this.answer) {
 			System.out.println("!!힌트!! : 정답보다 큰수를 입력했습니다!!");
@@ -65,6 +68,9 @@ public class Game {
 			this.rn2 = (int) (Math.random() * 3); // 3 5
 		}
 
+	
+
+	
 		// 힌트 범위가 정답 범위를 벗어나면 (범위와 정답의 차이만큼만)으로 조정하기
 		if ((this.answer - this.rn1) < 0) {
 			this.rn1 = this.answer - 1;
@@ -84,8 +90,37 @@ public class Game {
 	}
 
 	// getStart() 백정이 : 게임실행
-
-	
+	void getStart(Scanner sc) {
+		
+		while(true) {
+			System.out.print("숫자를 맞춰주세요!!! 입력 : ");
+			input = sc.nextInt();
+			System.out.println(input + "을 입력하셨습니다.");
+			if(input < 1 || input > (this.level * 20)) {
+				System.out.println("!!!!!!!!범위를 벗어난 입력입니다.!!!!!!!!!");
+			}else {
+				System.out.println(tryCount + "번 입력을 했습니다!");
+				if(checkAnswer()) {
+					break;
+				}
+				if(this.limit / 2 == tryCount) {
+					getHint();
+				}
+			}
+			tryCount++;
+			
+			if(tryCount == this.limit) {
+				System.out.println("시도횟수를 초과했습니다!");
+				break;
+			}
+			
+		}
+		
+		
+		
+		quit();
+		
+	}
 
 	// quit()강버들 : 종료
 
