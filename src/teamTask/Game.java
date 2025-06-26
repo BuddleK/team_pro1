@@ -126,9 +126,9 @@ public class Game {
 	
 	// quit()강버들 : 종료
 
-	void quit() {
-		System.out.println("종료합니다!!!");
-	}
+
+	
+	
 	
 	
 	
