@@ -60,13 +60,12 @@ public class Game {
 			System.out.println("!!힌트!! : 정답보다 작은수를 입력했습니다!!");
 		}
 
-
 		if (this.tryCount == this.limit / 2) {
-			this.rn1 = (int) (Math.random() * 10); 
-			this.rn2 = (int) (Math.random() * 10); 
+			this.rn1 = (int) (Math.random() * 10);
+			this.rn2 = (int) (Math.random() * 10);
 		} else if (this.tryCount == this.limit - 2) {
-			this.rn1 = (int) (Math.random() * 3); 
-			this.rn2 = (int) (Math.random() * 3); 
+			this.rn1 = (int) (Math.random() * 3);
+			this.rn2 = (int) (Math.random() * 3);
 		}
 
 		// 힌트 범위가 정답 범위를 벗어나면 (범위와 정답의 차이만큼만)으로 조정하기
@@ -76,7 +75,6 @@ public class Game {
 		if ((this.answer + this.rn2) > this.level * 20) {
 			this.rn2 = this.level * 20 - this.answer;
 		}
-
 
 		System.out.printf("정답은 %d에서 %d사이에 있습니다.\n", this.answer - this.rn1, this.answer + this.rn2);
 
@@ -95,13 +93,13 @@ public class Game {
 			if (input < 1 || input > (this.level * 20)) {
 				System.out.println("!!!!!!!!범위를 벗어난 입력입니다.!!!!!!!!!");
 			} else {
-				System.out.println(tryCount+1 + "번 입력을 했습니다!");
+				System.out.println(tryCount + 1 + "번 입력을 했습니다!");
 				if (checkAnswer()) {
 					break;
 				}
 				if (this.limit / 2 == tryCount) {
 					getHint();
-				}else if(this.tryCount == this.limit-2){
+				} else if (this.tryCount == this.limit - 2) {
 					getHint();
 				}
 			}
@@ -119,10 +117,10 @@ public class Game {
 	}
 
 	// quit()강버들 : 종료
-	
+
 	void quit() {
-	      System.out.println("종료합니다!!!");
-	   
+		System.out.println("종료합니다!!!");
+
 	}
 
 }
