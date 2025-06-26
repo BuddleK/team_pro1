@@ -7,10 +7,9 @@ public class GameMain {
 		
 		
 		Scanner sc = new Scanner(System.in);
-//		Game game = new Game();
+		Game game = new Game();
 //		game.setLevel(sc);
-//		game.getStart(sc);
-		System.out.println();
+		game.getStart(sc);
 		
 		sc.close();
 	}
