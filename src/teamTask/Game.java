@@ -66,7 +66,7 @@ public class Game {
 		if (this.tryCount == this.limit / 2) {
 			this.rn1 = (int) (Math.random() * 10);
 			this.rn2 = (int) (Math.random() * 10);
-		} else if (this.tryCount == this.limit - 2) {
+		} else if (this.tryCount == this.limit - 1) {
 			this.rn1 = (int) (Math.random() * 3);
 			this.rn2 = (int) (Math.random() * 3);
 		}
@@ -98,13 +98,13 @@ public class Game {
 			if (input < 1 || input > (this.level * 20)) {
 				System.out.println("!!!!!!!!범위를 벗어난 입력입니다.!!!!!!!!!");
 			} else {
-				System.out.println(tryCount + 1 + "번 입력을 했습니다!");
+				System.out.println(tryCount + "번 입력을 했습니다!");
 				if (checkAnswer()) {
 					break;
 				}
 				if (this.limit / 2 == tryCount) {
 					getHint();
-				} else if (this.tryCount == this.limit - 2) {
+				} else if (this.tryCount == this.limit - 1) {
 					getHint();
 				}
 			}
