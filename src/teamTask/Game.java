@@ -17,7 +17,7 @@ public class Game {
 	
 
 	// setLevel() 최장현 : 난이도 선택
-
+	
 	
 	
 	
@@ -42,7 +42,7 @@ public class Game {
 	
 	
 	// checkAnswer() 강승훈 : 정답비교
-
+	
 
 	
 	
@@ -66,7 +66,7 @@ public class Game {
 	
 	
 	// getHint() 이재빈 : 힌트제공
-
+	
 
 	
 	
@@ -104,12 +104,12 @@ public class Game {
 	            System.out.println("!!!!!!!!범위를 벗어난 입력입니다.!!!!!!!!!");
 	         }else {
 	            System.out.println(tryCount + "번 입력을 했습니다!");
-	            if(checkAnswer()) {
-	               break;
-	            }
-	            if(this.limit / 2 == tryCount) {
-	               getHint();
-	            }
+//	            if(checkAnswer()) {
+//	               break;
+//	            }
+//	            if(this.limit / 2 == tryCount) {
+//	               getHint();
+//	            }
 	         }
 	         tryCount++;
 	         
@@ -122,14 +122,14 @@ public class Game {
 	      
 	      
 	      
-	      quit();
+//	      quit();
 	      
 	   }
 	
 
 	
 	// quit()강버들 : 종료
-
+	
 
 	
 	
