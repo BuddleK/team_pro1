@@ -43,17 +43,7 @@ public class Game {
 	// checkAnswer() 강승훈 : 정답비교
 	
 
-	boolean checkAnswer() {
-		if (this.input == this.answer) {
-			System.out.println("정답입니다!!");
-			System.out.println();
-			return true;
-		} else {
-			System.out.println("틀렸습니다!!");
-			System.out.println();
-			return false;
-		}
-	}
+	
 
 	// getHint() 이재빈 : 힌트제공
 	
@@ -131,8 +121,6 @@ public class Game {
 		quit();
 		
 	}
-
-	
 
 	// quit()강버들 : 종료
 
