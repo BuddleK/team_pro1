@@ -41,17 +41,7 @@ public class Game {
 
 	// checkAnswer() 강승훈 : 정답비교
 
-	boolean checkAnswer() {
-		if (this.input == this.answer) {
-			System.out.println("정답입니다!!");
-			System.out.println();
-			return true;
-		} else {
-			System.out.println("틀렸습니다!!");
-			System.out.println();
-			return false;
-		}
-	}
+	
 
 	// getHint() 이재빈 : 힌트제공
 	void getHint() {
@@ -95,35 +85,7 @@ public class Game {
 
 	// getStart() 백정이 : 게임실행
 
-	void getStart(Scanner sc) {
-		setLevel(sc);
-		while (true) {
-			System.out.print("숫자를 맞춰주세요!!! 입력 : ");
-			input = sc.nextInt();
-			System.out.println(input + "을 입력하셨습니다.");
-			if (input < 1 || input > (this.level * 20)) {
-				System.out.println("!!!!!!!!범위를 벗어난 입력입니다.!!!!!!!!!");
-			} else {
-				System.out.println(tryCount + 1 + "번 입력을 했습니다!");
-				if (checkAnswer()) {
-					break;
-				}
-				if (this.limit / 2 <= tryCount && tryCount < this.limit - 1) {
-					getHint();
-				}
-			}
-			tryCount++;
-
-			if (tryCount == this.limit) {
-				System.out.println("시도횟수를 초과했습니다!");
-				break;
-			}
-
-		}
-
-		quit();
-
-	}
+	
 
 	// quit()강버들 : 종료
 
