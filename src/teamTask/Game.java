@@ -9,7 +9,6 @@ public class Game {
 	int tryCount; // 시도 횟수
 	int limit; // 입력제한수
 	int input;
-	boolean setHintRange = true;
 	int rn1;
 	int rn2;
 	int range;
@@ -64,18 +63,12 @@ public class Game {
 			System.out.println("!!힌트!! : 정답보다 작은수를 입력했습니다!!");
 		}
 
-//		      if (this.setHintRange) {
-//		         this.rn1 = (int) (Math.random() * 10); // 3 5
-//		         this.rn2 = (int) (Math.random() * 10); // 3 5
-//		         this.setHintRange = false;
-//		      }
-
 		if (this.tryCount == this.limit / 2) {
-			this.rn1 = (int) (Math.random() * 10); // 3 5
-			this.rn2 = (int) (Math.random() * 10); // 3 5
+			this.rn1 = (int) (Math.random() * 10);
+			this.rn2 = (int) (Math.random() * 10);
 		} else if (this.tryCount == this.limit - 2) {
-			this.rn1 = (int) (Math.random() * 3); // 3 5
-			this.rn2 = (int) (Math.random() * 3); // 3 5
+			this.rn1 = (int) (Math.random() * 3);
+			this.rn2 = (int) (Math.random() * 3);
 		}
 
 		// 힌트 범위가 정답 범위를 벗어나면 (범위와 정답의 차이만큼만)으로 조정하기
@@ -86,10 +79,6 @@ public class Game {
 			this.rn2 = this.level * 20 - this.answer;
 		}
 
-//		      if (this.tryCount == this.limit - 1) {
-//		         this.setHintRange = true;
-//		      }
-
 		System.out.printf("정답은 %d에서 %d사이에 있습니다.\n", this.answer - this.rn1, this.answer + this.rn2);
 
 		System.out.printf("%d번 시도했습니다. %d번 남았습니다.\n", this.tryCount, this.limit - this.tryCount);
@@ -97,12 +86,14 @@ public class Game {
 	}
 
 	// getStart() 백정이 : 게임실행
+
 	void getStart(Scanner sc) {
 
 		while (true) {
 			System.out.print("숫자를 맞춰주세요!!! 입력 : ");
 			input = sc.nextInt();
 			System.out.println(input + "을 입력하셨습니다.");
+
 			tryCount++;
 			if (input < 1 || input > (this.level * 20)) {
 				System.out.println("!!!!!!!!범위를 벗어난 입력입니다.!!!!!!!!!");
@@ -111,7 +102,7 @@ public class Game {
 				if (checkAnswer()) {
 					break;
 				}
-				if (this.limit / 2 +1 == tryCount) {
+				if (this.limit / 2 + 1 == tryCount) {
 					getHint();
 				}
 			}
@@ -130,6 +121,7 @@ public class Game {
 	// quit()강버들 : 종료
 
 	void quit() {
+
 		System.out.println("종료합니다!!!");
 
 	}
