@@ -42,6 +42,16 @@ public class Game {
 
 	// checkAnswer() 강승훈 : 정답비교
 
+	boolean checkAnswer() {
+		if (this.input == this.answer) {
+			System.out.println("정답입니다!!");
+			return true;
+		} else {
+			System.out.println("틀렸습니다!!");
+			return false;
+		}
+	}
+
 	// getHint() 이재빈 : 힌트제공
 
 	void getHint() {
@@ -116,5 +126,10 @@ public class Game {
 	}
 
 	// quit()강버들 : 종료
+	
+	void quit() {
+	      System.out.println("종료합니다!!!");
+	   
+	}
 
 }
