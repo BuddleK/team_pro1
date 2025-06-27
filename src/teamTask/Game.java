@@ -7,10 +7,10 @@ public class Game {
 	int level; // 난이도
 	int tryCount; // 시도 횟수
 	int limit; // 입력제한수
-	int input;//사용자가 입력한 정답 시도 숫자
-	int rn1;//난수1
-	int rn2;//난수2
-	int range;//정답범위
+	int input;// 사용자가 입력한 정답 시도 숫자
+	int rn1;// 난수1
+	int rn2;// 난수2
+	int range;// 정답범위
 //	4팀 하   랜덤숫자 맞추기
 //	   1~100사이의 랜덤숫자를 정하고 사용자가 맞출 때까지 계속 입력하게하기
 //	   메소드 : 난이도선택(1~5), 게임실행, 정답비교, 힌트제공, 게임종료
@@ -65,7 +65,7 @@ public class Game {
 		if (this.tryCount == this.limit / 2) {
 			this.rn1 = (int) (Math.random() * 10);
 			this.rn2 = (int) (Math.random() * 10);
-		} else if (this.tryCount == this.limit - 2) {
+		} else if (this.tryCount == this.limit - 1) {
 			this.rn1 = (int) (Math.random() * 3);
 			this.rn2 = (int) (Math.random() * 3);
 		}
@@ -97,13 +97,13 @@ public class Game {
 			if (this.input < 1 || this.input > (this.range)) {
 				System.out.println("!!!!!!!!범위를 벗어난 입력입니다.!!!!!!!!!");
 			} else {
-				System.out.println(this.tryCount + 1 + "번 입력을 했습니다!");
+				System.out.println(tryCount + "번 입력을 했습니다!");
 				if (checkAnswer()) {
 					break;
 				}
 				if (this.limit / 2 == this.tryCount) {
 					getHint();
-				} else if (this.tryCount == this.limit - 2) {
+				} else if (this.tryCount == this.limit - 1) {
 					getHint();
 				}
 			}
