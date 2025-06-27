@@ -1,6 +1,5 @@
 package teamTask;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
@@ -8,10 +7,10 @@ public class Game {
 	int level; // 난이도
 	int tryCount; // 시도 횟수
 	int limit; // 입력제한수
-	int input;
-	int rn1;
-	int rn2;
-	int range;
+	int input;//사용자가 입력한 정답 시도 숫자
+	int rn1;//난수1
+	int rn2;//난수2
+	int range;//정답범위
 //	4팀 하   랜덤숫자 맞추기
 //	   1~100사이의 랜덤숫자를 정하고 사용자가 맞출 때까지 계속 입력하게하기
 //	   메소드 : 난이도선택(1~5), 게임실행, 정답비교, 힌트제공, 게임종료
@@ -23,9 +22,8 @@ public class Game {
 		while (true) {
 			System.out.print("난이도를 입력하세요 (1부터 5까지!): ");
 			this.level = sc.nextInt();
-			int level = this.level;
-			if (level <= 5 && level > 0) {
-				range = level * 20;
+			if (this.level <= 5 && this.level > 0) {
+				this.range = this.level * 20;
 
 				break;
 			} else {
@@ -35,12 +33,13 @@ public class Game {
 	}
 
 	void setRandom() {
-		Random r = new Random();
-		this.answer = r.nextInt(range) + 1;
-		System.out.println("선택한 난이도는 " + level + "입니다.");
-		System.out.println("범위는 1부터 " + range + "까지 입니다.");
-		this.limit = level * 5;
-		System.out.println("최대 시도 횟수는 " + limit + "입니다.");
+
+		this.answer = (int) (Math.random() * this.range) + 1;
+		System.out.println(this.answer);
+		System.out.println("선택한 난이도는 " + this.level + "입니다.");
+		System.out.println("범위는 1부터 " + this.range + "까지 입니다.");
+		this.limit = this.level * 5;
+		System.out.println("최대 시도 횟수는 " + this.limit + "입니다.");
 	}
 
 	// checkAnswer() 강승훈 : 정답비교
@@ -72,11 +71,11 @@ public class Game {
 		}
 
 		// 힌트 범위가 정답 범위를 벗어나면 (범위와 정답의 차이만큼만)으로 조정하기
-		if ((this.answer - this.rn1) < 0) {
+		if ((this.answer - this.rn1) <= 0) {
 			this.rn1 = this.answer - 1;
 		}
-		if ((this.answer + this.rn2) > this.level * 20) {
-			this.rn2 = this.level * 20 - this.answer;
+		if ((this.answer + this.rn2) > this.range) {
+			this.rn2 = this.range - this.answer;
 		}
 
 		System.out.printf("정답은 %d에서 %d사이에 있습니다.\n", this.answer - this.rn1, this.answer + this.rn2);
@@ -91,25 +90,25 @@ public class Game {
 
 		while (true) {
 			System.out.print("숫자를 맞춰주세요!!! 입력 : ");
-			input = sc.nextInt();
-			System.out.println(input + "을 입력하셨습니다.");
+			this.input = sc.nextInt();
+			System.out.println(this.input + "을 입력하셨습니다.");
 
-			tryCount++;
-			if (input < 1 || input > (this.level * 20)) {
+			this.tryCount++;
+			if (this.input < 1 || this.input > (this.range)) {
 				System.out.println("!!!!!!!!범위를 벗어난 입력입니다.!!!!!!!!!");
 			} else {
-				System.out.println(tryCount + 1 + "번 입력을 했습니다!");
+				System.out.println(this.tryCount + 1 + "번 입력을 했습니다!");
 				if (checkAnswer()) {
 					break;
 				}
-				if (this.limit / 2 == tryCount) {
+				if (this.limit / 2 == this.tryCount) {
 					getHint();
 				} else if (this.tryCount == this.limit - 2) {
 					getHint();
 				}
 			}
 
-			if (tryCount == this.limit) {
+			if (this.tryCount == this.limit) {
 				System.out.println("시도횟수를 초과했습니다!");
 				break;
 			}
